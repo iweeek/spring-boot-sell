@@ -9,6 +9,11 @@ spring:
 server:
   servlet:
     context-path: /sell
-logging:
-  pattern:
-    console: "%d - %msg%n"
+#logging:
+#  pattern:
+#    console: "%d - %msg%n"
+##  path: /Users/nijun/log/tomcat/
+#  file: /Users/nijun/log/tomcat/sell.log
+#  level:
+#    com.nijun.sell.LoggerTest: info
+
