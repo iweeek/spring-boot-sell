@@ -31,6 +31,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -103,11 +104,14 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public OrderDTO findOne(String orderId) {
+        Optional<OrderMaster> optionalOrderMaster = orderMasterRepository.findById(orderId);
 
-        OrderMaster orderMaster = orderMasterRepository.findById(orderId).get();
-        if (orderMaster == null) {
+        if (!optionalOrderMaster.isPresent()) {
+            log.error("【查找订单】没有找到该订单 orderId={}", orderId);
             throw new SellException(ResultEnum.ORDER_NOT_EXIST);
         }
+        OrderMaster orderMaster = optionalOrderMaster.get();
+
         List<OrderDetail> orderDetailList = orderDetailRepository.findByOrderId(orderId);
         if (CollectionUtils.isEmpty(orderDetailList)) {
             throw new SellException(ResultEnum.ORDERDEATIL_NOT_EXIST);
@@ -117,6 +121,7 @@ public class OrderServiceImpl implements OrderService {
         BeanUtils.copyProperties(orderMaster, orderDTO);
         orderDTO.setOrderDetailList(orderDetailList);
         return orderDTO;
+
     }
 
     @Override

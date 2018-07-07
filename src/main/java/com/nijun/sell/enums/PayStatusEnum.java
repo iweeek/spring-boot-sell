@@ -9,10 +9,9 @@ import lombok.Getter;
  * Time: 2:26 PM
  */
 @Getter
-public enum PayStatusEnum {
+public enum PayStatusEnum implements CodeEnum {
     WAIT(0, "等待支付"),
-    SUCCESS(1, "支付完成")
-    ;
+    SUCCESS(1, "支付完成");
     private Integer code;
 
     private String message;
@@ -21,4 +20,5 @@ public enum PayStatusEnum {
         this.code = code;
         this.message = message;
     }
+
 }

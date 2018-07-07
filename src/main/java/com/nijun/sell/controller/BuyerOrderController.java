@@ -88,7 +88,7 @@ public class BuyerOrderController {
         return ResultVOUtil.success(orderDTOPage.getContent());
     }
 
-    // 查询订单详情 detail
+    // 查询订单详情 detai.ftl
     @GetMapping("/detail")
     public ResultVO<OrderDTO> detail(@RequestParam("openid") String openid,
                                      @RequestParam("orderid") String orderid) {
