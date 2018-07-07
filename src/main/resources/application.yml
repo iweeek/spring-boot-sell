@@ -3,12 +3,21 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: 123456
-    url: jdbc:mysql://192.168.1.104:3306/sell?verifyServerCertificate=false&useSSL=false&requireSSL=false
+    url: jdbc:mysql://192.168.1.104:3306/sell?characterEncoding=utf-8&verifyServerCertificate=false&useSSL=false&requireSSL=false
+
   jpa:
     show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect  # 不加这句则默认为myisam引擎
+
+  jackson:
+    default-property-inclusion: non_null
+
 server:
   servlet:
     context-path: /sell
+
 #logging:
 #  pattern:
 #    console: "%d - %msg%n"
@@ -16,4 +25,12 @@ server:
 #  file: /Users/nijun/log/tomcat/sell.log
 #  level:
 #    com.nijun.sell.LoggerTest: info
+
+wechat:
+  mpAppId: wx5d2168dc5070bd2f
+  mpAppSecret: 54f4b8d6904727a53f886773a3671cdd
+  mchId:
+  mchKey:
+  keyPath:
+
 
