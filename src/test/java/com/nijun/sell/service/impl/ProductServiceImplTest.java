@@ -1,6 +1,7 @@
 package com.nijun.sell.service.impl;
 
 import com.nijun.sell.dataobject.ProductInfo;
+import com.nijun.sell.enums.ProductStatusEnum;
 import com.nijun.sell.service.ProductService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -66,5 +67,17 @@ public class ProductServiceImplTest {
         productInfo.setProductStatus(0);
         ProductInfo result = service.save(productInfo);
         assertNotEquals(null, result);
+    }
+
+    @Test
+    public void onSale() {
+        ProductInfo productInfo = service.onSale("213123");
+        assertTrue("商品上架不正确", productInfo.getProductStatus().equals(ProductStatusEnum.UP.getCode()));
+    }
+
+    @Test
+    public void offSale() {
+        ProductInfo productInfo = service.offSale("213123");
+        assertTrue("商品下架不正确", productInfo.getProductStatus().equals(ProductStatusEnum.DOWN.getCode()));
     }
 }

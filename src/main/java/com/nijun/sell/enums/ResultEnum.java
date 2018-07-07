@@ -26,7 +26,11 @@ public enum ResultEnum {
     ORDER_OWNER_ERROR(21, "该订单不属于当前用户"),
     WECHAT_MP_ERROR(22, "微信公众账号方面错误"),
     ORDER_CANCEL_SUCCESS(23, "订单取消成功"),
-    ORDER_FINISH_SUCCESS(23, "订单完结成功"),
+    ORDER_FINISH_SUCCESS(24, "订单完结成功"),
+    PRODUCT_STATUS_ERROR(25, "商品状态不正确"),
+    PRODUCT_ONSALE_SUCCESS(26, "商品上架成功"),
+    PRODUCT_OFFSALE_SUCCESS(27, "商品下架成功"),
+    PRODUCT_SAVE_SUCCESS(27, "商品新增成功"),
 
     ;
 
