@@ -22,13 +22,14 @@ server:
   servlet:
     context-path: /sell
 
-#logging:
-#  pattern:
-#    console: "%d - %msg%n"
-##  path: /Users/nijun/log/tomcat/
-#  file: /Users/nijun/log/tomcat/sell.log
-#  level:
-#    com.nijun.sell.LoggerTest: info
+logging:
+  pattern:
+    console: "%d - %msg%n"
+#  path: /Users/nijun/log/tomcat/
+  file: /Users/nijun/log/tomcat/sell.log
+  level:
+    com.nijun.sell.LoggerTest: info
+    com.nijun.sell.dataobject.mapper: trace
 
 wechat:
   mpAppId: wx5d2168dc5070bd2f
@@ -45,4 +46,6 @@ project-url:
   wechatMpAuthorize: http://nijun.natapp4.cc
   wechatOpenAuthorize: http://nijun.natapp4.cc
   sell: http://nijun.natapp4.cc
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
 

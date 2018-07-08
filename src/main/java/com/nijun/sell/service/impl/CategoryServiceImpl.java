@@ -1,6 +1,7 @@
 package com.nijun.sell.service.impl;
 
 import com.nijun.sell.dataobject.ProductCategory;
+import com.nijun.sell.dataobject.dao.ProductCategoryDao;
 import com.nijun.sell.repository.ProductCategoryRepository;
 import com.nijun.sell.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,9 @@ import java.util.List;
  */
 @Service
 public class CategoryServiceImpl implements CategoryService {
+
+    @Autowired
+    private ProductCategoryDao productCategoryDao;
 
     @Autowired
     private ProductCategoryRepository repository;

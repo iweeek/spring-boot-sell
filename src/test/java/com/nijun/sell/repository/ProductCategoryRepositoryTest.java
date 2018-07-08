@@ -38,7 +38,7 @@ public class ProductCategoryRepositoryTest {
 //    @Transactional
     public void saveTest() {
         ProductCategory productCategory = new ProductCategory("男生最爱", 4);
-//        ProductCategory productCategory = repository.findById(1).get();
+//        ProductCategoryMapper productCategory = repository.findById(1).get();
 //        productCategory.setCategoryType(20);
         ProductCategory category = repository.save(productCategory);
         assertNotNull(category);
