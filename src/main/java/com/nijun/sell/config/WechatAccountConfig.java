@@ -4,6 +4,8 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import java.util.Map;
+
 /**
  * User: nijun
  * Date: 2018/7/7
@@ -49,4 +51,9 @@ public class WechatAccountConfig {
      * 商户证书路径
      */
     private String keyPath;
+
+    /**
+     * 微信模板id
+     */
+    private Map<String, String> templateId;
 }

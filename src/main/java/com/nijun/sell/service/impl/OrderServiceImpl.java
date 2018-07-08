@@ -1,6 +1,5 @@
 package com.nijun.sell.service.impl;
 
-import com.fasterxml.jackson.databind.util.BeanUtil;
 import com.nijun.sell.converter.OrderMaster2OrderDTOConverter;
 import com.nijun.sell.dataobject.OrderDetail;
 import com.nijun.sell.dataobject.OrderMaster;
@@ -15,9 +14,9 @@ import com.nijun.sell.repository.OrderDetailRepository;
 import com.nijun.sell.repository.OrderMasterRepository;
 import com.nijun.sell.service.OrderService;
 import com.nijun.sell.service.ProductService;
+import com.nijun.sell.service.PushMessageService;
 import com.nijun.sell.utils.KeyUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -52,6 +51,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private OrderDetailRepository orderDetailRepository;
+
+    @Autowired
+    private PushMessageService pushMessageService;
 
     @Override
     @Transactional
@@ -191,6 +193,9 @@ public class OrderServiceImpl implements OrderService {
             log.error("【完结订单】订单状态更新失败, orderMaster={}", orderMaster);
             throw new SellException(ResultEnum.ORDER_UPDATE_FAIL);
         }
+
+        // 推送微信模板消息
+        pushMessageService.orderStatus(orderDTO);
 
         return orderDTO;
     }

@@ -4,7 +4,7 @@ spring:
     username: root
     password: 123456
 #    url: jdbc:mysql://192.168.1.104:3306/sell?characterEncoding=utf-8&verifyServerCertificate=false&useSSL=false&requireSSL=false
-    url: jdbc:mysql://172.20.10.7:3306/sell?characterEncoding=utf-8&verifyServerCertificate=false&useSSL=false&requireSSL=false
+    url: jdbc:mysql://192.168.1.106:3306/sell?characterEncoding=utf-8&verifyServerCertificate=false&useSSL=false&requireSSL=false
 
   jpa:
     show-sql: true
@@ -15,7 +15,7 @@ spring:
   jackson:
     default-property-inclusion: non_null
   redis:
-    host: 172.20.10.7
+    host: 192.168.1.106
     pool: 6379
 
 server:
@@ -33,11 +33,13 @@ server:
 wechat:
   mpAppId: wx5d2168dc5070bd2f
   mpAppSecret: 54f4b8d6904727a53f886773a3671cdd
-  openAppId:
-  openAppSecret:
+  openAppId: wx5d2168dc5070bd2f
+  openAppSecret: 54f4b8d6904727a53f886773a3671cdd
   mchId:
   mchKey:
   keyPath:
+  tamplateId:
+    orderStatus: TBtngRGbdjoaS4v1LT3Wa-QeHgbGRHKnNhuRj3jqRrs
 
 project-url:
   wechatMpAuthorize: http://nijun.natapp4.cc
