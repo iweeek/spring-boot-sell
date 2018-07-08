@@ -3,7 +3,8 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: 123456
-    url: jdbc:mysql://192.168.1.104:3306/sell?characterEncoding=utf-8&verifyServerCertificate=false&useSSL=false&requireSSL=false
+#    url: jdbc:mysql://192.168.1.104:3306/sell?characterEncoding=utf-8&verifyServerCertificate=false&useSSL=false&requireSSL=false
+    url: jdbc:mysql://172.20.10.7:3306/sell?characterEncoding=utf-8&verifyServerCertificate=false&useSSL=false&requireSSL=false
 
   jpa:
     show-sql: true
@@ -13,6 +14,9 @@ spring:
 
   jackson:
     default-property-inclusion: non_null
+  redis:
+    host: 172.20.10.7
+    pool: 6379
 
 server:
   servlet:
@@ -29,8 +33,14 @@ server:
 wechat:
   mpAppId: wx5d2168dc5070bd2f
   mpAppSecret: 54f4b8d6904727a53f886773a3671cdd
+  openAppId:
+  openAppSecret:
   mchId:
   mchKey:
   keyPath:
 
+project-url:
+  wechatMpAuthorize: http://nijun.natapp4.cc
+  wechatOpenAuthorize: http://nijun.natapp4.cc
+  sell: http://nijun.natapp4.cc
 

@@ -30,7 +30,11 @@ public enum ResultEnum {
     PRODUCT_STATUS_ERROR(25, "商品状态不正确"),
     PRODUCT_ONSALE_SUCCESS(26, "商品上架成功"),
     PRODUCT_OFFSALE_SUCCESS(27, "商品下架成功"),
-    PRODUCT_SAVE_SUCCESS(27, "商品新增成功"),
+    PRODUCT_SAVE_SUCCESS(28, "商品保存成功"),
+    CATEGORY_SAVE_SUCCESS(29, "类目保存成功"),
+    LOGIN_FAIL(30, "登录失败"),
+    LOGOUT_SUCCESS(31, "登出成功"),
+    WECHAT_OPEN_ERROR(32, "微信开放平台方面错误"),
 
     ;
 
