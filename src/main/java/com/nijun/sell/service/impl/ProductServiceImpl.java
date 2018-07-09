@@ -8,6 +8,9 @@ import com.nijun.sell.exception.SellException;
 import com.nijun.sell.repository.ProductInfoRepository;
 import com.nijun.sell.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -23,14 +26,17 @@ import java.util.List;
  * Time: 10:25 AM
  */
 @Service
+//@CacheConfig(cacheNames = "product" )
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductInfoRepository repository;
 
     @Override
+//    @Cacheable(key = "123")
     public ProductInfo findOne(String productId) {
-        return repository.findById(productId).get();
+        ProductInfo productInfo = repository.findById(productId).get();
+        return productInfo;
     }
 
     @Override
@@ -44,6 +50,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+//    @CachePut(key = "123")
     public ProductInfo save(ProductInfo productInfo) {
         return repository.save(productInfo);
     }

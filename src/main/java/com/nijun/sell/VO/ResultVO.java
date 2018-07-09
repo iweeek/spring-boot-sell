@@ -3,6 +3,8 @@ package com.nijun.sell.VO;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * Created by IntelliJ IDEA.
  * User: nijun
@@ -11,7 +13,9 @@ import lombok.Data;
  */
 @Data
 //@JsonInclude(JsonInclude.Include.NON_NULL)
-public class ResultVO<T> {
+public class ResultVO<T> implements Serializable {
+
+    private static final long serialVersionUID = 9178803610445970221L;
 
     /** 错误码. */
     private  Integer code;

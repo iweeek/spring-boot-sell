@@ -1,0 +1,51 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+#    url: jdbc:mysql://192.168.1.104:3306/sell?characterEncoding=utf-8&verifyServerCertificate=false&useSSL=false&requireSSL=false
+    url: jdbc:mysql://192.168.1.106:3306/sell?characterEncoding=utf-8&verifyServerCertificate=false&useSSL=false&requireSSL=false
+
+  jpa:
+#    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect  # 不加这句则默认为myisam引擎
+
+  jackson:
+    default-property-inclusion: non_null
+  redis:
+    host: 192.168.1.106
+    pool: 6379
+
+server:
+  servlet:
+    context-path: /sell
+
+logging:
+  pattern:
+    console: "%d - %msg%n"
+#  path: /Users/nijun/log/tomcat/
+  file: /Users/nijun/log/tomcat/sell.log
+  level:
+    com.nijun.sell.LoggerTest: info
+    com.nijun.sell.dataobject.mapper: trace
+
+wechat:
+  mpAppId: wx5d2168dc5070bd2f
+  mpAppSecret: 54f4b8d6904727a53f886773a3671cdd
+  openAppId: wx5d2168dc5070bd2f
+  openAppSecret: 54f4b8d6904727a53f886773a3671cdd
+  mchId:
+  mchKey:
+  keyPath:
+  tamplateId:
+    orderStatus: TBtngRGbdjoaS4v1LT3Wa-QeHgbGRHKnNhuRj3jqRrs
+
+project-url:
+  wechatMpAuthorize: http://nijun.natapp4.cc
+  wechatOpenAuthorize: http://nijun.natapp4.cc
+  sell: http://nijun.natapp4.cc
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+

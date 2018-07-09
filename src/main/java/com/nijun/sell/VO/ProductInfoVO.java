@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
@@ -13,7 +14,9 @@ import java.math.BigDecimal;
  * Time: 12:46 PM
  */
 @Data
-public class ProductInfoVO {
+public class ProductInfoVO implements Serializable {
+
+    private static final long serialVersionUID = 8408161813130579098L;
 
     /** 商品id. */
     @JsonProperty("id")

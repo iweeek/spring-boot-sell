@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -23,8 +24,9 @@ import java.util.Date;
 @Entity
 @Data
 @DynamicUpdate
-public class ProductInfo {
+public class ProductInfo implements Serializable {
 
+    private static final long serialVersionUID = 5460839567165193933L;
 
     /** 商品id. */
     @Id
